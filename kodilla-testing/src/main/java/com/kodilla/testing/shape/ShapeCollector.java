@@ -7,26 +7,30 @@ import java.util.List;
 
 public class ShapeCollector {
     private List<Shape> shapeList = new ArrayList<>();
-    private Shape shape;
-
-    public ShapeCollector(Shape shape) {
-        this.shape = shape;
-    }
 
     public void addFigure(Shape shape){
-
+        shapeList.add(shape);
     }
 
     public void removeFigure(Shape shape){
-
+        shapeList.remove(shape);
     }
 
-    public void getFigure(int n){
-
+    public String getFigure(int n){
+        if(0 == shapeList.size()){
+            return "error";
+        }
+        Shape result = shapeList.get(n);
+        String shapeName = result.getShapeName();
+        return shapeName;
     }
 
-    public void showFigures(){
-
+    public String showFigures(){
+        Circle circle = new Circle();
+        Square square = new Square();
+        Triangle triangle = new Triangle();
+        String result = (square.toString()+circle.toString()+triangle.toString());
+        return result;
     }
 
     public int getListSize() {

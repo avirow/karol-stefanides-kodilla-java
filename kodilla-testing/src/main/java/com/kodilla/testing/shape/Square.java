@@ -11,4 +11,9 @@ public class Square implements Shape {
     public int getField(){
         return this.field;
     }
+
+    @Override
+    public String toString() {
+        return shapeName+" " ;
+    }
 }
