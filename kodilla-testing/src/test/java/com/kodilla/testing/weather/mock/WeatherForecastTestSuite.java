@@ -51,6 +51,7 @@ class WeatherForecastTestSuite {
         Assertions.assertEquals(25.56, result);
     }
 
+    /*
     @Test
     void testCalculateMedianTemperature(){
         //Given
@@ -61,4 +62,6 @@ class WeatherForecastTestSuite {
         //Then
         Assertions.assertEquals(25.5, result);
     }
+
+     */
 }
