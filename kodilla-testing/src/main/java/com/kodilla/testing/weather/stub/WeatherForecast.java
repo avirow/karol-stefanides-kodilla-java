@@ -32,43 +32,22 @@ public class WeatherForecast {
         return result;
     }
 
-    public double calculateMedianTemperature( Map<String, Double> sort){
+    public double calculateMedianTemperature(){
         double median = 0;
         double average = 0;
+        List<Double> temps = new ArrayList<>(temperatures.getTemperatures().values());
+        Collections.sort(temps);
 
-        if (sort.size() % 2 == 0 ) {
-            for (Map.Entry<String, Double> temperature :
-                    sort.entrySet()) {
-                int i = 1;
-                if(i == (sort.size()/2)|| i == ((sort.size()/2)-1)){
-                    average += temperature.getValue();
-                }
-                i++;
-            }
-            median = average/2;
+        if (temps.size() % 2 == 0 ) {
+            int centerLeft = temps.size()/2 - 1;
+            int centerRight = temps.size()/2 ;
+            median = (temps.get(centerLeft)+temps.get(centerRight))/2.0;
         }
         else {
-            for (Map.Entry<String, Double> temperature :
-                    temperatures.getTemperatures().entrySet()) {
-                int i = 1;
-                if(i == (sort.size()/2)){
-                    median = temperature.getValue()/2;
-                }
-                i++;
-            }
+            int center = temps.size() / 2;
+            median = temps.get(center);
         }
         return median;
     }
 
-    public HashMap<String, Double> sortByValue(Temperatures hm) {
-        List<Map.Entry<String, Double> > list = new LinkedList<>(hm.getTemperatures().entrySet());
-
-        list.sort(Map.Entry.comparingByValue());
-
-        HashMap<String, Double> temp = new LinkedHashMap<>();
-        for (Map.Entry<String, Double> aa : list) {
-            temp.put(aa.getKey(), aa.getValue());
-        }
-        return temp;
-    }
 }

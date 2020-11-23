@@ -2,9 +2,7 @@ package com.kodilla.testing.weather.mock;
 
 import com.kodilla.testing.weather.stub.Temperatures;
 import com.kodilla.testing.weather.stub.WeatherForecast;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -30,17 +28,19 @@ class WeatherForecastTestSuite {
         temperaturesMap.put("Gdansk", 26.1);
         when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
     }
-
-    @Test
-    void testCalculateForecastWithMock() {
-        //Given
-        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
-        //When
-        int quantityOfSensors = weatherForecast.calculateForecast().size();
-        //Then
-        Assertions.assertEquals(5, quantityOfSensors);
+    @Nested
+    @DisplayName("Testy z kursu")
+    class MyTest {
+        @Test
+        void testCalculateForecastWithMock() {
+            //Given
+            WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+            //When
+            int quantityOfSensors = weatherForecast.calculateForecast().size();
+            //Then
+            Assertions.assertEquals(5, quantityOfSensors);
+        }
     }
-
     @Test
     void testCalculateAverageTemperature(){
         //Given
@@ -51,17 +51,16 @@ class WeatherForecastTestSuite {
         Assertions.assertEquals(25.56, result);
     }
 
-    /*
+
     @Test
     void testCalculateMedianTemperature(){
         //Given
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
-        Map<String, Double> temperaturesMapSort = weatherForecast.sortByValue(temperaturesMock);
         //When
-        double result = weatherForecast.calculateMedianTemperature(temperaturesMapSort);
+        double result = weatherForecast.calculateMedianTemperature();
         //Then
         Assertions.assertEquals(25.5, result);
     }
 
-     */
+
 }
