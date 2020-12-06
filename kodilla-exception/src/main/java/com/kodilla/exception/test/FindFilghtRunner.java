@@ -4,13 +4,14 @@ import java.util.HashMap;
 
 public class FindFilghtRunner {
 
-    public void findFilght(Flight flight) throws RouteNotFoundException {
+    public boolean findFilght(Flight flight) throws RouteNotFoundException {
         HashMap<String, Boolean> flightMap = new HashMap<>();
         flightMap.put("MP02", true);
         flightMap.put("MP01", false);
 
         if (flightMap.get(flight.arrivalAirport) == true) {
             System.out.println("Airport is avaible");
+            return true;
         }
         else {
             throw new RouteNotFoundException();
@@ -23,7 +24,7 @@ public class FindFilghtRunner {
         FindFilghtRunner filghtRunner = new FindFilghtRunner();
 
         try{
-            filghtRunner.findFilght(flight);
+            boolean result = filghtRunner.findFilght(flight);
         }
         catch (RouteNotFoundException routeNotFoundException){
             System.out.println("Airport is not avaible");
