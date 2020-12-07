@@ -25,6 +25,7 @@ public class FindFilghtRunner {
 
         try{
             boolean result = filghtRunner.findFilght(flight);
+            System.out.println(result);
         }
         catch (RouteNotFoundException routeNotFoundException){
             System.out.println("Airport is not avaible");
