@@ -15,23 +15,21 @@ public class ExceptionHandling {
         }
         catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error:" + e);
+            System.out.println("I see that something is wrong:" + e);
             throw new SecondChallengeExeption();
         }
     }
 
     public static void main(String[] args)  {
 
-        String result;
         SecondChallenge secondChallenge = new SecondChallenge();
 
         try {
-            result = secondChallenge.probablyIWillThrowException(3, 1.5);
+            String result = secondChallenge.probablyIWillThrowException(3, 1.5);
             System.out.println(result);
         }
         catch (Exception e) {
-            System.out.println("Error:" + e);
-            //throw new SecondChallengeExeption();
+            System.out.println("I see that :" + e);
         }
         finally {
             System.out.println("Done !");

@@ -8,12 +8,9 @@ public class FindFilghtRunner {
         HashMap<String, Boolean> flightMap = new HashMap<>();
         flightMap.put("MP02", true);
         flightMap.put("MP01", false);
-
-        if (flightMap.get(flight.arrivalAirport) == true) {
-            System.out.println("Airport is avaible");
-            return true;
-        }
-        else {
+        if(flightMap.containsKey(flight.getArrivalAirport()) && flightMap.containsKey(flight.getDepartureAirport())){
+            return flightMap.get(flight.getArrivalAirport());
+        } else {
             throw new RouteNotFoundException();
         }
 
