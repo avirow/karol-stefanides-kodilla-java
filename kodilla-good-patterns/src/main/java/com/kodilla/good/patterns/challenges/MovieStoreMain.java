@@ -1,10 +1,14 @@
 package com.kodilla.good.patterns.challenges;
 
 
+import java.util.stream.Collectors;
+
 public class MovieStoreMain {
     public static void main(String[] args) {
         MovieStore movieStore = new MovieStore();
-        movieStore.getMovies().entrySet().stream()
-                .forEach(System.out::println);
+        String value = movieStore.getMovies().values().stream()
+                .flatMap(v -> v.stream())
+                .collect(Collectors.joining("!"));
+        System.out.println(value);
     }
 }
