@@ -6,4 +6,9 @@ public class Address {
     public Address(String address){
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return  address ;
+    }
 }

@@ -14,10 +14,10 @@ public class ProductOrderService {
     }
 
     public OrderDto process(final OrderRequest orderRequest) {
-        boolean isOrdered = orderService.order();
+        boolean isOrdered = orderService.order(orderRequest.getUser(), orderRequest.getProduct());
 
         if (isOrdered) {
-            informationService.inform(orderRequest.getUser());
+            informationService.inform(orderRequest.getUser(), orderRequest.getAddress());
             orderRepository.createOrder();
             return new OrderDto(orderRequest.getUser(), true);
         } else {
