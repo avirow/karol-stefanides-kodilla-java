@@ -7,7 +7,7 @@ public class Application {
 
         FlightSearch flightSearchEngine = new FlightSearch(flightRegister.getListOfFlights());
         flightSearchEngine.searchByCityOfDeparture("Warszawa");
-        flightSearchEngine.searchByCityOfArrival("Gdańsk");
-        flightSearchEngine.searchByCityForTransfer("Katowice","Kraków", "Gdańsk");
+        flightSearchEngine.searchByCityOfArrival("Gdansk");
+        flightSearchEngine.searchByCityForTransfer("Katowice", "Gdansk");
     }
 }

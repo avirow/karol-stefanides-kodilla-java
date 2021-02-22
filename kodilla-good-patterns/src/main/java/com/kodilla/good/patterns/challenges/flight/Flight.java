@@ -13,6 +13,11 @@ public class Flight {
         this.numberOfFlight = numberOfFlight;
     }
 
+    public Flight(String cityDeparture, String cityArrival) {
+        this.cityDeparture = cityDeparture;
+        this.cityArrival = cityArrival;
+    }
+
     public String getCityDeparture() {
         return cityDeparture;
     }
@@ -26,15 +31,13 @@ public class Flight {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
-        return numberOfFlight == flight.numberOfFlight &&
-                Objects.equals(cityDeparture, flight.cityDeparture) &&
+        return Objects.equals(cityDeparture, flight.cityDeparture) &&
                 Objects.equals(cityArrival, flight.cityArrival);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(cityDeparture, cityArrival, numberOfFlight);
+        return Objects.hash(cityDeparture, cityArrival);
     }
 
     @Override
