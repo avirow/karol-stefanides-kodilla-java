@@ -7,12 +7,13 @@ import java.util.List;
 
 @NamedQuery(
         name = "Employee.findByLastName",
-        query = "FROM Employee WHERE lastname = :SEARCHINGLASTNAME")
+        query = "FROM Employee WHERE lastname = :SEARCHINGLASTNAME"
+)
 
-@NamedNativeQuery(
-        name = "Employee.findByAnyPartOfName",
-        query = "SELECT * FROM Employees WHERE lastname LIKE :ANYPARTOFNAME",
-        resultClass = Employee.class)
+@NamedQuery(
+        name = "Employee.findByAnyPartOfLastName",
+        query = "FROM Employee WHERE lastname LIKE :ANYPARTOFLASTNAME"
+)
 
 @Entity
 @Table(name = "EMPLOYEES")
